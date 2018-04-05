@@ -6,19 +6,21 @@
            autofocus
            #todoText>
     <br>
-    <button class="btn btn-primary btn-block">Create</button>
+    <button class="btn btn-primary btn-block" (click)="addTodo($event, todoText)">Create</button>
   </div>
 </div>
 
 <div class="todo-list">
-  <div class="col-md-1">
-    <input type="checkbox">
-  </div>
-  <div class="col-md-7">
-    Some todo
-  </div>
-  <div class="col-md-4">
-    <input type="button" class="btn btn-danger pull-right" value="Delete">
-    <input type="button" class="btn btn-default pull-right" value="Edit">
+  <div *ngFor="let todo of todos">
+    <div class="col-md-1">
+      <input type="checkbox">
+    </div>
+    <div class="col-md-7">
+     {{todo.text}}
+    </div>
+    <div class="col-md-4">
+      <input type="button" class="btn btn-danger pull-right" value="Delete">
+      <input type="button" class="btn btn-default pull-right" value="Edit">
+    </div>
   </div>
 </div>
