@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Todo} from '../interfaces/todo';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class TodoService {
@@ -15,12 +15,18 @@ export class TodoService {
       .map (res => res.json());
   }
 
-  saveTodo(todo: Todo): Observable<Todo> {
+  saveTodo(todo: Todo) {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this._http.post('http://localhost:3000/Todos', JSON.stringify(todo), options)
     .map(res => res.json());
   }
 
+  updateTodo(todo) {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this._http.put('http://localhost:3000/Todos/' + todo.id, JSON.stringify(todo), options)
+      .map(res => res.json());
+  }
 
 }

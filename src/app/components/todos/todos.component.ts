@@ -30,7 +30,43 @@ export class TodosComponent implements OnInit {
     result.subscribe(x => {
       this.todos.push(newTodo);
       todoText.value = '';
-    })
+    });
+  }
+
+  setEditState(todo, state) {
+    if (state) {
+      todo.isEditMode = state;
+    } else {
+      delete todo.isEditMode;
+    }
+  }
+
+  updateStatus(todo) {
+    let _todo = {
+      id: todo.id,
+      text: todo.text,
+      isCompleted: !todo.isCompleted
+    };
+    this._todoService.updateTodo(_todo)
+      .subscribe(data => {
+        todo.isCompleted = !todo.isCompleted;
+      });
+  }
+
+  updateTodoText(event, todo) {
+    if (event.which === 13) {
+      todo.text = event.target.value;
+      let _todo = {
+        id: todo.id,
+        text: todo.text,
+        isCompleted: todo.isCompleted
+      };
+
+      this._todoService.updateTodo(_todo)
+        .subscribe(data => {
+          this.setEditState(todo, false);
+        });
+    }
   }
 
 }
