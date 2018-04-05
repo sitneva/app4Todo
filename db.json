@@ -6,34 +6,19 @@
       "isCompleted": true
     },
     {
-      "id": 2,
-      "text": "Walk the dog",
-      "isCompleted": true
-    },
-    {
       "id": 3,
       "text": "Go to work1222",
       "isCompleted": false
     },
     {
-      "text": "test",
-      "isCompleted": true,
-      "id": 4
+      "text": "55555",
+      "isCompleted": false,
+      "id": 8
     },
     {
-      "text": "erwr",
+      "text": "6666",
       "isCompleted": false,
-      "id": 5
-    },
-    {
-      "text": "qqqqq",
-      "isCompleted": false,
-      "id": 6
-    },
-    {
-      "text": "wwwww",
-      "isCompleted": false,
-      "id": 7
+      "id": 9
     }
   ]
 }

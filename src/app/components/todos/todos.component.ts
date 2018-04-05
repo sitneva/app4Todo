@@ -19,7 +19,7 @@ export class TodosComponent implements OnInit {
       });
   }
 
-  addTodo(event, todoText) {
+  addTodo(todoText) {
     let result;
     let newTodo = {
       text: todoText.value,
@@ -67,6 +67,19 @@ export class TodosComponent implements OnInit {
           this.setEditState(todo, false);
         });
     }
+  }
+
+  deleteTodo(todo) {
+    let todos = this.todos;
+    console.log(todo);
+    this._todoService.deleteTodo(todo.id)
+      .subscribe(data => {
+          for (let i = 0; i < todos.length; i++) {
+            if (todos[i].id === todo.id) {
+              todos.splice(i, 1);
+            }
+          }
+      });
   }
 
 }

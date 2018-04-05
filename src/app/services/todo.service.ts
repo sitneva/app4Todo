@@ -6,6 +6,9 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class TodoService {
+  private headers = new Headers({ 'Content-Type': 'application/json' });
+  private options = new RequestOptions({ headers: this.headers });
+
   constructor(private _http: Http ) {
 
   }
@@ -16,16 +19,17 @@ export class TodoService {
   }
 
   saveTodo(todo: Todo) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://localhost:3000/Todos', JSON.stringify(todo), options)
+    return this._http.post('http://localhost:3000/Todos/', JSON.stringify(todo), this.options)
     .map(res => res.json());
   }
 
   updateTodo(todo) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    return this._http.put('http://localhost:3000/Todos/' + todo.id, JSON.stringify(todo), options)
+    return this._http.put('http://localhost:3000/Todos/' + todo.id, JSON.stringify(todo), this.options)
+      .map(res => res.json());
+  }
+
+  deleteTodo(id) {
+    return this._http.delete('http://localhost:3000/Todos/' + id)
       .map(res => res.json());
   }
 
