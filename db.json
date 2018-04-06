@@ -7,28 +7,33 @@
     },
     {
       "id": 3,
-      "text": "Go to work1222",
+      "text": "Go to work",
       "isCompleted": false
     },
     {
-      "text": "55555",
+      "text": "Play football",
       "isCompleted": false,
       "id": 8
     },
     {
-      "text": "6666",
-      "isCompleted": false,
-      "id": 9
+      "id": 9,
+      "text": "Buy a pen",
+      "isCompleted": true
     },
     {
       "id": 10,
-      "text": "eeeee444",
+      "text": "Wash the cat",
       "isCompleted": false
     },
     {
       "id": 12,
-      "text": "zsdsdsdf342534",
+      "text": "Open book",
       "isCompleted": false
+    },
+    {
+      "id": 13,
+      "text": "Learn Angular",
+      "isCompleted": true
     }
   ]
 }

@@ -32,9 +32,9 @@ export class TodosComponent implements OnInit {
 
     result = this._todoService.saveTodo(newTodo);
     result.subscribe(data => {
-      //this.todos.push(newTodo);
+      this.todos.push(data);
       todoText.value = '';
-      this.getTodo();
+      //this.getTodo();
     });
   }
 
