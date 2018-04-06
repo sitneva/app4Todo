@@ -12,10 +12,14 @@ export class TodosComponent implements OnInit {
   constructor( private _todoService: TodoService) { }
 
   ngOnInit() {
+    this.getTodo();
+  }
+
+  getTodo() {
     this.todos = [];
     this._todoService.getTodos()
       .subscribe(todos => {
-       this.todos = todos;
+        this.todos = todos;
       });
   }
 
@@ -27,9 +31,10 @@ export class TodosComponent implements OnInit {
     };
 
     result = this._todoService.saveTodo(newTodo);
-    result.subscribe(x => {
-      this.todos.push(newTodo);
+    result.subscribe(data => {
+      //this.todos.push(newTodo);
       todoText.value = '';
+      this.getTodo();
     });
   }
 
